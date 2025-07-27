@@ -17,7 +17,7 @@ code_content = """print('The Python World')\nprint('你好！Python编程世界�
 
 test_script.write_text(data = code_content,encoding = "utf-8")
 
-# shutil复制功能：
+# 一、shutil复制功能：
 # 1. shutil.copyfile(src,dst) 仅仅复制文件内容，不保留任何权限和时间戳
 # src和dst都必须是完整的路径（字符串或者pathlin.Path对象）
 # 如果dst文件不存在，会被创建，存在的话，会被覆盖。
@@ -46,3 +46,33 @@ shutil.copyfile(test_script,test_copy_script)
 # 默认情况下，dst目录必须不存在。
 # dirs_exist_ok = True时，会把src下的文件和子目录合并到dst中去
 # ignore接受一个列表，用于被会略的文件和目录（不被复制）
+
+
+# 二、移动和重命名
+# shutil.move(src,dst)
+# 递归的移动文件后者目录src到dst
+# 如果dst存在，则直接移动到dst下
+# 如果dst不存在，src会被移动并且重命名为src。
+# 如果dst是一个已存在的文件，则抛出异常。
+move_test = path / "move_test"
+move_test.mkdir(exist_ok = True)
+
+# shutil.move(test_dictonary,move_test)
+
+
+# 三、删除操作
+# shutil.rmtree(path)
+# 参数ignore_errors = True，删除过程中出现的错误将会被忽略（如权限问题）
+# 参数onerror，可以传递一个可调用对象（函数），当发生错误时调用它。
+
+# 删除 test_copy文件夹
+shutil.rmtree(test_copy)
+
+# 四、归档（压缩和解压）
+# shutil.make_archive(base_name,format,root_dir)
+# 参数base_name不包含扩展名
+shutil.make_archive("test_archive","zip",test_dictonary)
+
+# shutil.unpack_archive(filename,extract_dir)
+# 解压一个归档的文件
+shutil.unpack_archive("test_archive.zip",path)
