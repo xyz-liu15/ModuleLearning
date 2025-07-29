@@ -1,24 +1,19 @@
-from textual.app import App, ComposeResult
-from textual.widgets import Footer, Header
+from textual.app import App,ComposeResult
+from textual.widgets import Header,Footer,Static,Welcome
+# from rich.traceback import install
 
 
-class StopwatchApp(App):
-    """A Textual app to manage stopwatches."""
+# install(show_locals = True)
 
-    BINDINGS = [("d", "toggle_dark", "Toggle dark mode")]
-
+class MyApp(App):
+    CSS_PATH = "../css_data/css_test.tcss"
     def compose(self) -> ComposeResult:
-        """Create child widgets for the app."""
+        """编排TUI界面"""
         yield Header(show_clock = True)
         yield Footer()
-
-    def action_toggle_dark(self) -> None:
-        """An action to toggle dark mode."""
-        self.theme = (
-            "textual-dark" if self.theme == "textual-light" else "textual-light"
-        )
-
+        
+       
 
 if __name__ == "__main__":
-    app = StopwatchApp()
+    app = MyApp()
     app.run()

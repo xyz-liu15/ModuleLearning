@@ -1,0 +1,13 @@
+Screen {
+    layout: grid;
+    grid-size: 2 2; /* 2 columns, 2 rows */
+    grid-gutter: 1 2; /* 1 column gutter, 2 row gutter */
+}
+
+#item1 {
+    row-span: 2; /* Span 2 rows */
+}
+
+#item3 {
+    column-span: 2; /* Span 2 columns */
+}
