@@ -1,9 +1,6 @@
 from textual.app import App,ComposeResult
 from textual.widgets import Header,Footer,Static,Welcome
-# from rich.traceback import install
 
-
-# install(show_locals = True)
 
 class MyApp(App):
     CSS_PATH = "../css_data/css_test.tcss"

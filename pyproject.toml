@@ -8,8 +8,13 @@ dependencies = [
     "langchain>=0.3.27",
     "langchain-openai>=0.3.28",
     "python-dotenv>=1.1.1",
-    "rich>=14.1.0",
+    "rich[jupyter]>=14.1.0",
     "textual>=5.0.1",
     "textual-dev>=1.7.0",
     "typer>=0.16.0",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.30.0",
 ]
