@@ -6,8 +6,6 @@ import os
 from rich import print
 
 
-
-
 # 获取API密钥和接口地址
 zhipu_api_key = os.getenv("OPENAI_API_KEY")
 zhipu_base_url = os.getenv("BASE_URL")
@@ -34,6 +32,7 @@ prompt = ChatPromptTemplate.from_messages(
 
 
 chain = prompt | model | StrOutputParser()
+
 
 for chunk in chain.stream({"query": "苹果","topic" : "出售苹果"}):
     print(chunk,end = "",flush = True)
